@@ -1,13 +1,14 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom'
 
 class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
-          <a className="navbar-brand js-scroll-trigger" href="landing.html">
+          <Link className="navbar-brand js-scroll-trigger" to="/">
             MedSafe
-          </a>
+          </Link>
           <button
             className="navbar-toggler navbar-toggler-right"
             type="button"
@@ -20,26 +21,26 @@ class Navbar extends Component {
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link js-scroll-trigger"
-                  href="profiles.html"
+                  to="/about"
                 >
                   {" "}
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link js-scroll-trigger"
-                  href="register.html"
+                  to="/register"
                 >
                   Sign Up
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link js-scroll-trigger" href="login.html">
+                <Link className="nav-link js-scroll-trigger" to="/login">
                   Login
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
