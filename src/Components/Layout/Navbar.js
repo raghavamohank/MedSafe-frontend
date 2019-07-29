@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
   render() {
@@ -21,19 +21,13 @@ class Navbar extends Component {
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link
-                  className="nav-link js-scroll-trigger"
-                  to="/about"
-                >
-                  {" "}
+                <Link className="nav-link js-scroll-trigger" to="/about">
+                  {' '}
                   About
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  className="nav-link js-scroll-trigger"
-                  to="/register"
-                >
+                <Link className="nav-link js-scroll-trigger" to="/register">
                   Sign Up
                 </Link>
               </li>

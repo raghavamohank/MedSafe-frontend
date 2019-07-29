@@ -38,3 +38,12 @@ img {
 .form-control::placeholder {
   color: #bbb !important;
 }
+
+footer {
+  position: fixed;
+  align-items: center;
+  height: auto;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}

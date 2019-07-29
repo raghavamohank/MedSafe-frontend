@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Landing extends Component {
   render() {
@@ -14,7 +14,7 @@ class Landing extends Component {
                     MedSafe
                   </h1>
                   <h2 className="lead text-dark text-center">
-                    {" "}
+                    {' '}
                     Because right information at the right time matters
                   </h2>
                   <hr />
