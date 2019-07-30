@@ -2,10 +2,12 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
-import axios from 'axios';
 import 'antd/dist/antd.css';
+import { connect } from 'react-redux';
 
 import { Form, Input, Select, Checkbox, Button, Upload, Icon } from 'antd';
+
+import { registerUser } from '../../actions/authActions';
 
 const { Option } = Select;
 
@@ -13,6 +15,12 @@ class Register extends Component {
   state = {
     confirmDirty: false,
   };
+
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
 
   handleSubmit = e => {
     e.preventDefault();
@@ -28,10 +36,13 @@ class Register extends Component {
           // eslint-disable-next-line react/destructuring-assignment
           role: this.state.role,
         };
-        axios
-          .post('http://localhost:4000/users/register', newUser)
-          .then(res => console.log(res.data))
-          .catch(err => console.log(err));
+        // axios
+        //   .post('http://localhost:4000/users/register', newUser)
+        //   .then(res => console.log(res.data))
+        //   .catch(err => console.log(err));
+
+        // eslint-disable-next-line react/destructuring-assignment
+        this.props.registerUser(newUser);
       }
     });
   };
@@ -227,4 +238,11 @@ class Register extends Component {
 
 const WrappedRegistrationForm = Form.create({ name: 'register' })(Register);
 
-export default WrappedRegistrationForm;
+const mapStateToProps = state => ({
+  auth: state.auth,
+});
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(WrappedRegistrationForm);

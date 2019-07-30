@@ -12,17 +12,23 @@ import Login from './Components/auth/Login';
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Navbar />
-          <Route exact path="/" component={Landing} />
-          <div className="container mt-5">
-            <Route exact path="/register" component={WrappedRegistrationForm} />
-            <Route exact path="/login" component={Login} />
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            <Navbar />
+            <Route exact path="/" component={Landing} />
+            <div className="container mt-5">
+              <Route
+                exact
+                path="/register"
+                component={WrappedRegistrationForm}
+              />
+              <Route exact path="/login" component={Login} />
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
-      </Router>
+        </Router>
+      </Provider>
     );
   }
 }

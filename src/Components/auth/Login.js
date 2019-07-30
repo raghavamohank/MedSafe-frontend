@@ -1,5 +1,8 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { loginUser } from '../../actions/authActions';
 
 class Login extends Component {
   constructor() {
@@ -8,6 +11,12 @@ class Login extends Component {
       email: '',
       password: '',
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
   }
 
   onChange = e => {
@@ -19,14 +28,11 @@ class Login extends Component {
   onSubmit = e => {
     e.preventDefault();
     const user = {
-      // eslint-disable-next-line react/destructuring-assignment
       email: this.state.email,
-      // eslint-disable-next-line react/destructuring-assignment
       password: this.state.password,
     };
-    axios
-      .post('http://localhost:4000/users/login', user)
-      .then(res => console.log(res.data));
+    // eslint-disable-next-line react/prop-types
+    this.props.loginUser(user);
   };
 
   render() {
@@ -71,5 +77,11 @@ class Login extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  auth: state.auth,
+});
 
-export default Login;
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(Login);
