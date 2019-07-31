@@ -2,7 +2,6 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
-import 'antd/dist/antd.css';
 import { connect } from 'react-redux';
 
 import { Form, Input, Select, Checkbox, Button, Upload, Icon } from 'antd';
